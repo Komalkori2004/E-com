@@ -10,7 +10,6 @@ const cartSlice = createSlice({
   },
 
   reducers: {
-
     addToCart: (state, action) => {
 
       const exist = state.items.find(
@@ -58,10 +57,15 @@ const cartSlice = createSlice({
       }
 
       localStorage.setItem("cartItems", JSON.stringify(state.items));
+    },
+
+    clearCart: (state) => {
+      state.items = []
+      localStorage.setItem("cartItems", JSON.stringify([]))
     }
 
   }
 });
 
-export const { addToCart, removeCart, increaseQty, decreaseQty } = cartSlice.actions;
+export const { addToCart, removeCart, increaseQty, decreaseQty,clearCart } = cartSlice.actions;
 export default cartSlice.reducer;
