@@ -1,15 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
-import {
-  removeCart,
-  increaseQty,
-  decreaseQty,
-  clearCart,
-} from "../redux/cartSlice";
-
+import {removeCart,increaseQty,decreaseQty,clearCart} from "../redux/cartSlice";
 import "../styles/cart.css";
+import { useNavigate } from "react-router-dom";
 const Cart = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const CartItems = useSelector((state) => state.cart.items);
+  
 
   // empty cart
   if (CartItems.length === 0) {
@@ -26,12 +23,12 @@ const Cart = () => {
   // ✅ Total items
   const totalItems = CartItems.reduce((acc, item) => acc + item.quantity, 0);
   // checkout
-  const handleSingleCheckout = (item) => {
-    alert(`Order placed for ${item.title} 🎉`);
-
-    // sirf ye product remove hoga
-    dispatch(removeCart(item.id));
-  };
+  const handleCheckout = () => {
+  navigate("/checkout", { state: { cart: CartItems } });
+};
+const handleSingleCheckout = (item) => {
+  navigate("/checkout", { state: { product: item } });
+};
   return (
     <div className="cart-container">
       <h2 className="cart-title">Shopping Cart</h2>
