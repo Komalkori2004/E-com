@@ -23,9 +23,12 @@ const Home = () => {
       <img src={p.image} alt={p.title} />
       <h3>{p.title}</h3>
       <p>${p.price}</p>
-      <button onClick={() => dispatch(addToCart(p))}>
-        Add To Cart
-      </button>
+    <button onClick={() => {
+  console.log("CLICKED", p);
+  dispatch(addToCart(p));
+}}>
+  Add To Cart
+</button>
     </div>
   ))}
 </div>

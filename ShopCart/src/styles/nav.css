@@ -1,57 +1,80 @@
-.navbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 50px;
-  background:#0f172a;
-  color:white;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: #0f172a;
+  color: white;
 }
 
-.logo{
-  font-size:24px;
-  font-weight:bold;
-  color:#38bdf8;
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #38bdf8;
+  cursor: pointer;
 }
 
-.nav-links{
-  display:flex;
-  gap:30px;
+.nav-links {
+  display: flex;
+  align-items: center; /* 🔥 important */
+  gap: 25px;
 }
 
-.nav-links a{
-  text-decoration:none;
-  color:white;
-  font-size:18px;
-  position:relative;
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  position: relative;
 }
 
-.nav-links a:hover{
-  color:#38bdf8;
+.nav-links a:hover {
+  color: #38bdf8;
 }
 
-.cart-link{
-  position:relative;
+.cart-link {
+  position: relative;
 }
 
-.cart-count{
-  position:absolute;
-  top:-8px;
-  right:-12px;
-  background:red;
-  color:white;
-  border-radius:50%;
-  font-size:12px;
-  padding:2px 7px;
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  font-size: 12px;
+  padding: 2px 7px;
 }
 
-@media(max-width:768px){
+.user-name {
+  font-size: 14px;
+  color: #94a3b8;
+}
 
-  .navbar{
-    padding:15px 20px;
+.logout-btn {
+  background: #38bdf8;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.logout-btn:hover {
+  background: #0ea5e9;
+}
+
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 10px;
   }
 
-  .nav-links{
-    gap:15px;
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
   }
-
 }
