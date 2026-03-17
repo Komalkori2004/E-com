@@ -5,8 +5,11 @@ import { logout } from "../redux/userSlice";
 
 const Navbar = () => {
 
-  const cartItems = useSelector((state) => state.cart.items);
-   const user = useSelector((state) => state.user.user);
+  const user = useSelector((state) => state.user.user);
+const allItems = useSelector((state) => state.cart.items)
+const cartItems = user
+  ? allItems.filter(item => item.userId === user.id)
+  : [];
   const dispatch=useDispatch()
   const navigate=useNavigate()
 

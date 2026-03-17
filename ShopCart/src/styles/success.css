@@ -1,0 +1,30 @@
+.success-container {
+  min-height: calc(100vh - 70px); /* 🔥 navbar height adjust */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0d0f14;
+}
+
+.success-box {
+  background: #161a22;
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #232733;
+  color: #e4e4e7;
+}
+
+.success-box h2 {
+  margin-bottom: 10px;
+}
+
+.success-box button {
+  margin-top: 20px;
+  padding: 10px 16px;
+  border: 1px solid #2f3442;
+  background: transparent;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}

@@ -12,9 +12,15 @@ const Cart = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const CartItems = useSelector((state) => state.cart.items);
 
-  // 🟡 empty cart
+
+const user = useSelector((state) => state.user.user);
+const allItems = useSelector((state) => state.cart.items);
+
+const CartItems = allItems.filter(
+  (item) => item.userId === user?.id
+);
+
   if (CartItems.length === 0) {
     return (
       <div className="cart-container">
@@ -23,24 +29,20 @@ const Cart = () => {
     );
   }
 
-  // 💰 total price
   const totalPrice = CartItems.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
   );
 
-  // 📦 total items
   const totalItems = CartItems.reduce(
     (acc, item) => acc + item.quantity,
     0
   );
 
-  // 🔘 checkout full cart
   const handleCheckout = () => {
     navigate("/checkout", { state: { cart: CartItems } });
   };
 
-  // 🔘 single product checkout
   const handleSingleCheckout = (item) => {
     navigate("/checkout", { state: { product: item } });
   };
@@ -49,7 +51,6 @@ const Cart = () => {
     <div className="cart-container">
       <div className="cart-layout">
 
-        {/* 🔹 LEFT SIDE */}
         <div className="cart-items">
           {CartItems.map((item) => (
             <div className="cart-item" key={item.id}>
@@ -60,7 +61,6 @@ const Cart = () => {
                 <h3>{item.title}</h3>
                 <p className="cart-price">₹ {item.price}</p>
 
-                {/* ➕➖ qty */}
                 <div className="qty-controls">
                   <button onClick={() => dispatch(decreaseQty(item.id))}>
                     -
@@ -71,7 +71,6 @@ const Cart = () => {
                   </button>
                 </div>
 
-                {/* 🔘 buy now */}
                 <button
                   className="buy-btn"
                   onClick={() => handleSingleCheckout(item)}
@@ -80,7 +79,6 @@ const Cart = () => {
                 </button>
               </div>
 
-              {/* ❌ remove */}
               <button
                 className="remove-btn"
                 onClick={() => dispatch(removeCart(item.id))}
@@ -91,7 +89,6 @@ const Cart = () => {
           ))}
         </div>
 
-        {/* 🔹 RIGHT SIDE */}
         <div className="cart-summary">
           <h3>Total Items: {totalItems}</h3>
           <h2>Total: ₹ {totalPrice}</h2>

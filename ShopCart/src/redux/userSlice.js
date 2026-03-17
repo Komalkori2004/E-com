@@ -1,7 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-
-
 const  getUSer=()=>{
   const data=localStorage.getItem("user")
   return data?JSON.parse(data):null

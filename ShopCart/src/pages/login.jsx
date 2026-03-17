@@ -51,7 +51,7 @@ const Login = () => {
 
     if (form.password && form.password.length < 6) {
       newError.password = "Password must be at least 6 characters";
-    }            
+    }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (form.email && !emailRegex.test(form.email)) {
@@ -61,8 +61,12 @@ const Login = () => {
     setError(newError);
 
     if (Object.keys(newError).length > 0) return;
+    const userData = {
+      ...form,
+      id: Date.now(), // 👈 YE IMPORTANT HAI
+    };
 
-    dispatch(login(form));
+    dispatch(login(userData));
     navigate("/home");
   };
 

@@ -1,11 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./index.css"
 import Login from "./pages/login";
 import Home from "./pages/home";
 import Cart from "./pages/cart";
 import Navbar from "./components/navbar";
 import CheckOut from "./components/checkout";
 import ProtectRoute from "./components/protectRoute";
+import Success from "./pages/sucess";
+
 
 function App() {
   return (
@@ -33,6 +34,8 @@ function App() {
           />
           
           <Route path="/checkout" element={<CheckOut />} />
+          <Route path="/success" element={<Success />} />
+
         </Routes>
       </BrowserRouter>
     </> 
