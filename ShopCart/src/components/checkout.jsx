@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { removeCart, clearCart } from "../redux/cartSlice";
-
+import "../styles/chekout.css";
 const CheckOut = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -36,35 +36,28 @@ const CheckOut = () => {
   };
 
   return (
-    <div className="checkout-container">
-      <h2>Checkout</h2>
+   <div className="checkout-container">
+  <div className="checkout-card">
 
-      {/* 🔹 Single Product */}
-      {product && (
-        <>
-          <img src={product.image} width="150" />
-          <h3>{product.title}</h3>
-          <p>Price: ₹ {product.price}</p>
-          <p>Qty: {product.quantity}</p>
-        </>
-      )}
+    <h2>Checkout</h2>
 
-      {/* 🔹 Multiple Products */}
-      {cart &&
-        cart.map((item) => (
-          <div key={item.id}>
-            <img src={item.image} width="100" />
-            <h4>{item.title}</h4>
-            <p>₹ {item.price} × {item.quantity}</p>
-          </div>
-        ))}
+    <img src={product.image} />
 
-      <h2>Total: ₹ {totalPrice}</h2>
+    <h3>{product.title}</h3>
 
-      <button onClick={handleOrder}>
-        Place Order
-      </button>
+    <div className="checkout-details">
+      <p><span>Price:</span> <span>₹ {product.price}</span></p>
+      <p><span>Qty:</span> <span>{product.quantity}</span></p>
     </div>
+
+    <p className="checkout-total">Total: ₹ {totalPrice}</p>
+
+    <button className="checkout-btn" onClick={handleOrder}>
+      Place Order
+    </button>
+
+  </div>
+</div>
   );
 };
 

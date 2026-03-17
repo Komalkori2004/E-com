@@ -1,73 +1,88 @@
+/* 🌍 navbar */
 .navbar {
+  position: sticky;   /* 🔥 sticky */
+  top: 0;
+  z-index: 1000;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 50px;
-  background: #0f172a;
-  color: white;
+
+  padding: 14px 40px; /* 🔥 improved padding */
+  background: rgba(13, 15, 20, 0.9); /* soft dark */
+  backdrop-filter: blur(8px); /* 🔥 glass effect */
+
+  border-bottom: 1px solid #232733;
+  color: #e4e4e7;
 }
 
+/* 🧊 logo */
 .logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #38bdf8;
+  font-size: 20px;
+  font-weight: 600;
+  color: #f4f4f5;
   cursor: pointer;
 }
 
+/* 🔗 nav links */
 .nav-links {
   display: flex;
-  align-items: center; /* 🔥 important */
-  gap: 25px;
+  align-items: center;
+  gap: 20px;
 }
 
 .nav-links a {
   text-decoration: none;
-  color: white;
-  font-size: 16px;
-  position: relative;
+  color: #9ca3af; /* soft grey */
+  font-size: 14px;
+  transition: 0.2s;
 }
 
 .nav-links a:hover {
-  color: #38bdf8;
+  color: #ffffff;
 }
 
+/* 🛒 cart */
 .cart-link {
   position: relative;
 }
 
 .cart-count {
   position: absolute;
-  top: -8px;
-  right: -12px;
-  background: red;
-  color: white;
+  top: -6px;
+  right: -10px;
+  background: #2f3442;
+  color: #f4f4f5;
   border-radius: 50%;
-  font-size: 12px;
-  padding: 2px 7px;
+  font-size: 11px;
+  padding: 2px 6px;
 }
 
+/* 👤 user */
 .user-name {
-  font-size: 14px;
-  color: #94a3b8;
+  font-size: 13px;
+  color: #9ca3af;
 }
 
+/* 🚪 logout */
 .logout-btn {
-  background: #38bdf8;
-  border: none;
+  background: transparent;
+  border: 1px solid #2f3442;
   padding: 6px 12px;
-  border-radius: 5px;
+  border-radius: 6px;
+  color: #e4e4e7;
   cursor: pointer;
-  font-weight: bold;
+  transition: 0.2s;
 }
 
 .logout-btn:hover {
-  background: #0ea5e9;
+  background: #1f2430;
 }
 
-
+/* 📱 responsive */
 @media (max-width: 768px) {
   .navbar {
-    padding: 15px 20px;
+    padding: 12px 20px;
     flex-direction: column;
     gap: 10px;
   }
@@ -75,6 +90,6 @@
   .nav-links {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 12px;
   }
 }
